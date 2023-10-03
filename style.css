@@ -1,0 +1,110 @@
+@font-face {
+    font-family: myFont;
+    src: url(font/UTM\ Duepuntozero.ttf);
+}
+@font-face {
+    font-family: myFontBold;
+    src: url(font/UTM\ DuepuntozeroBold.ttf);
+}
+* {
+    /* Nhúng font */
+    font-family: myFont;
+    /* font-family: 'Roboto', sans-serif; nhúng font online */
+    /* Clear code */
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/* 
+    transform: di chuyển phần tử xoay, lên xuống, trái phải, phóng to thu nhỏ
+    transition: giúp transform chuyển động mượt mà hơn
+    animation: di chuyển phức tạp hơn
+*/
+.box-sp1:hover {
+    /* thay đổi vị trí theo chiều Y di chuyển lên trên 20px */
+    /* transform: translateY(-20px); */
+    /* kết hợp nhiều chuyển động cùng lúc */
+    transform: scale(1.5) rotate(45deg);
+    /* transition giúp transform chạy mượt hơn */
+    transition-duration: 3s; /* thời gian diễn ra hiệu ứng */
+    transition-property: transform; /* loại hiệu ứng thực hiện */
+    transition-timing-function: linear; /* tốc độ diễn ra hiệu ứng */
+}
+/* tốc độ diễn ra hiệu ứng
+    easy: mặc định, bất đầu và kết thúc chậm, sau đó nhanh
+    linear: tốc độ không đổi
+    ease-in: bắt đầu chậm
+    easy-out: kết thúc chậm
+    easy-in-out: bất đầu và kết thúc chậm, ở giữa bình thường
+*/
+/* opacity: hiệu ứng làm mờ phần tử */
+.box-sp2 {
+    position: relative;
+}
+.box-sp2 > img {
+    display: block;
+}
+.tensp {
+    position: absolute;
+    bottom: 0px;
+    color: #ffffff;
+    font-size: 20px;
+    /* background-color: #000000; */
+    background: rgba(0,0,0, 0.5); 
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    opacity: 0; /* tàng hình đổi tượng */
+    transition: .5s ease;
+}
+.box-sp2:hover .tensp {
+    opacity: 1;
+}
+/* animation */
+/* DẠNG ĐƠN GIẢN 
+   from: mô tả css hiện tại
+   to: mô tả css mới
+*/
+@keyframes box3 {
+    from {top: 50px;}
+    to {top: 0px;}
+}
+/* đối tượng áp dụng animation phải position: relative */
+.box-sp3 > img:hover {
+    position: relative;
+    animation-name: box3; /* gọi tên animation được dùng với đối tượng */
+    animation-duration: 4s; /* thời gian diễn ra animation */
+    animation-delay: 1s; /*thời gian chờ trước khi chạy animation */
+    animation-iteration-count: infinite; /* số lượt chạy animation, infinite để chạy vô hạn */
+    animation-direction: alternate; 
+    /* hướng chạy:
+        reverse: chạy ngược chiều;
+        alternate: chạy xuôi 1 lần, lần sau chạy ngược lại
+    */
+    animation-timing-function: easy-in-out;
+}
+/* Tạo animation dạng phức tạp 
+    Chỉ rõ vị trí thời gian css mới được áp dụng cho đối tượng
+*/
+@keyframes box4 {
+    0% {border-radius: 50%; border: 2px solid green;}
+    10% {border-radius: 45%; border: 2px solid purple;}
+    25% {border-radius: 40%; border: 2px solid red;}
+    50% {border-radius: 30%; border: 2px solid yellow;}
+    75% {border-radius: 20%; border: 2px solid pink;}
+    100% {border-radius: 0%; border: 2px solid blue;}
+}
+
+.box-sp4 > img:hover {
+    position: relative;
+    animation-name: box4; /* gọi tên animation được dùng với đối tượng */
+    animation-duration: 4s; /* thời gian diễn ra animation */
+    animation-delay: 1s; /*thời gian chờ trước khi chạy animation */
+    animation-iteration-count: infinite; /* số lượt chạy animation, infinite để chạy vô hạn */
+    animation-direction: alternate; 
+    /* hướng chạy:
+        reverse: chạy ngược chiều;
+        alternate: chạy xuôi 1 lần, lần sau chạy ngược lại
+    */
+    animation-timing-function: easy-in-out;
+}
